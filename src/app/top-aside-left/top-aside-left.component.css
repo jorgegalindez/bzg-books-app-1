@@ -1,0 +1,9 @@
+.user-image > img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+
+.user-info {
+    padding: 5px 10px;
+}
