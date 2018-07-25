@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavBarComponent implements OnInit {
 
-  constructor() { }
+  @Output() openAside = new EventEmitter<string>();
+
+  state:string;
+
+  constructor() { 
+    this.state = 'open';
+  }
 
   ngOnInit() {
+  }
+
+  open() {
+    this.state = (this.state === 'close') ? 'open' : 'close';
+    console.log(this.state);
+    this.openAside.emit(this.state);
   }
 
 }

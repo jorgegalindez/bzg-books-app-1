@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoreComponent implements OnInit {
 
+  stateAside:string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  sendState(event){    
+    if(event){
+      this.stateAside = event;
+    }
+    
   }
 
 }

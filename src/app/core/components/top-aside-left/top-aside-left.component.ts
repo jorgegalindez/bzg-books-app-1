@@ -9,8 +9,10 @@ import { User } from "../../../auth/models/user/user";
 export class TopAsideLeftComponent implements OnInit {
 
   @Input() user: User;
-  
-  constructor() { }
+  today: Date;
+  constructor() { 
+    this.today = new Date();
+  }
 
   ngOnInit() {
   }
