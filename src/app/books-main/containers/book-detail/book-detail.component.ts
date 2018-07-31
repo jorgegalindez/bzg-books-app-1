@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from "@angular/router";
-import { books } from "../../../data-books";
+import { BookListService } from "../../services/list/book-list.service";
 
 @Component({
   selector: 'app-book-detail',
@@ -11,7 +11,7 @@ export class BookDetailComponent implements OnInit {
 
   book: any;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute, private booksService: BookListService) { 
     this.book = {};
   }
 
@@ -21,9 +21,12 @@ export class BookDetailComponent implements OnInit {
 
     this.route.params.subscribe((params: Params) => {
       id = params.id;
-      this.book = books.items.find(function(item) {
-        return item.id === id;
-      });
+      this.booksService.getBookList(id)
+      .subscribe(
+        (book: any) => {
+          this.book = book[0];
+        }
+      )
     });
 
   }

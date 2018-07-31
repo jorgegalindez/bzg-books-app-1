@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
+import { AlertsModule } from "../alerts/alerts.module";
 import { AppPipesModule } from "../app-pipes/app-pipes.module";
 import { CoreComponent } from "./containers/core/core.component";
 import { TopNavBarComponent } from './containers/top-nav-bar/top-nav-bar.component';
@@ -23,7 +24,8 @@ const COMPONENTS = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),    
-    AppPipesModule
+    AppPipesModule,
+    AlertsModule
   ],
   declarations: COMPONENTS 
 })
