@@ -10,6 +10,7 @@ import { AsideLeftComponent } from './containers/aside-left/aside-left.component
 import { MainContentComponent } from './containers/main-content/main-content.component';
 import { TopAsideLeftComponent } from './components/top-aside-left/top-aside-left.component';
 import { MenuAsideLeftComponent } from './components/menu-aside-left/menu-aside-left.component';
+import { SearchFormComponent } from "./components/search-form/search-form.component";
 import { routes } from "./routes.core";
 
 const COMPONENTS = [
@@ -18,7 +19,8 @@ const COMPONENTS = [
   AsideLeftComponent,
   MainContentComponent,
   TopAsideLeftComponent,
-  MenuAsideLeftComponent
+  MenuAsideLeftComponent,
+  SearchFormComponent
 ];
 
 @NgModule({

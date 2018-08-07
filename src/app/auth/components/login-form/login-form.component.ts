@@ -9,6 +9,7 @@ import { Login, ILogin } from "../../models/user/auth";
 export class LoginFormComponent implements OnInit {
 
   @Output() submitted = new EventEmitter();
+  @Output() signByGoogle = new EventEmitter<boolean>();
 
   login : ILogin;
 
@@ -21,6 +22,10 @@ export class LoginFormComponent implements OnInit {
 
   submit() {
     this.submitted.emit(this.login);
+  }
+
+  signGoogle(){
+    this.signByGoogle.emit(true);
   }
 
 }
