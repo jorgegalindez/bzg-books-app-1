@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from "angularfire2/auth";
+import { CollectionsService } from "../../services/collections.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-collection-list',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectionListComponent implements OnInit {
 
-  constructor() { }
+  collectionList: Observable<any[]>;
 
-  ngOnInit() {
+  constructor(private collectionsService: CollectionsService, private angularFireAuth: AngularFireAuth) {
+    this.collectionList = null;
   }
 
+  ngOnInit() {
+    this.angularFireAuth.authState
+    .subscribe(
+      user => {
+        this.collectionList = this.collectionsService.listCollections(user).valueChanges();
+      }
+    );
+  }
 }
