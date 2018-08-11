@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from "angularfire2/auth";
 import { CollectionsService } from "../../services/collections.service";
 import { Observable } from "rxjs";
+import { ICollection } from '../../models/collection';
 
 @Component({
   selector: 'app-collection-list',
@@ -17,6 +18,21 @@ export class CollectionListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadCollectionList();
+  }
+
+  createCollection(newCollection : ICollection) {
+    if(newCollection) {
+      this.collectionsService.createCollection(newCollection)
+      .then(
+        () => {
+          this.loadCollectionList();
+        }
+      );
+    }
+  }
+
+  private loadCollectionList() {
     this.angularFireAuth.authState
     .subscribe(
       user => {
