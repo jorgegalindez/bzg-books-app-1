@@ -2,11 +2,11 @@ export const environment = {
   production: true,
   apiBooks: 'https://www.googleapis.com/books/v1/',
   firebase: {
-    apiKey: "API_KEY",
-    authDomain: "AUTH_DOMAIN",
-    databaseURL: "DB_URL",
-    projectId: "PROJECT_ID",
-    storageBucket: "STORAGE",
-    messagingSenderId: "MSG_ID"
+    apiKey: "AIzaSyAC47nrHmeCqCmNUIcmBBIVcDiJR1_8Hzw",
+    authDomain: "bzg-books-app.firebaseapp.com",
+    databaseURL: "https://bzg-books-app.firebaseio.com",
+    projectId: "bzg-books-app",
+    storageBucket: "bzg-books-app.appspot.com",
+    messagingSenderId: "693422170521"
   }
 };
