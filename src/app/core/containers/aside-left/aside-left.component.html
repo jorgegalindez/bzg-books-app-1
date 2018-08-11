@@ -1,5 +1,5 @@
 <aside class="left-aside" [@asideAnimation]="asideState" [ngClass]="(asideState == 'close')? 'aside-close': ''">
-  <div class="header-aside">
+  <div class="header-aside bg-orange text-dark">
     <app-top-aside-left *ngIf="user" [user]="user"></app-top-aside-left>
   </div>
   <div class="content-aside">
