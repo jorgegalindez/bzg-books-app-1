@@ -1,10 +1,10 @@
-<section class="container content">
+<section class="container content bg-cs-green-light">
   <div class="row">
     <div class="col-12">
-      <h2>Mis Favoritos</h2>
+      <h2 class="text-cs-grey-dark">Mis Favoritos</h2>
     </div>
   </div>
   <div class="row">
-    <app-card-book *ngFor="let book of bookList | async" [book]="book" class="col-12 col-sm-12 col-md-6 col-lg-3"></app-card-book>
+    <app-card-book *ngFor="let book of bookList | async" [book]="book" class="col-12 col-sm-12 col-md-6 col-lg-3 text-cs-grey-dark"></app-card-book>
   </div>
 </section>
