@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card-collection',
@@ -8,10 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardCollectionComponent implements OnInit {
 
   @Input() collection : any;
+  @Output() collectionRemoved = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  removeCollection(collectionKey: string){
+    this.collectionRemoved.emit(collectionKey);
+  }
 }

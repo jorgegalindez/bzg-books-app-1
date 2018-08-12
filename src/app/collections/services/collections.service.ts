@@ -25,14 +25,22 @@ export class CollectionsService {
   }
 
   createCollection(newCollection : any) {
-    const promise = this.collectionsRef.push(newCollection);
-    promise.then(() => {
-      this.alertService.message({msg:"Nueva colección fue creada", type:"success"});
-    },
-    () => {
-      this.alertService.message({msg:"Hubo un error al crear la colección", type:"error"});
-    });
+    this.collectionsRef.push(newCollection)
+      .then(() => {
+        this.alertService.message({msg:"Nueva colección fue creada", type:"success"});
+      },
+      () => {
+        this.alertService.message({msg:"Hubo un error al crear la colección", type:"error"});
+      });
+  }
 
-    return promise;
+  removeCollection(collectionKey: string) {
+    this.collectionsRef.remove(collectionKey)
+      .then(() => {
+        this.alertService.message({msg:"La colección fue eliminada", type:"success"});
+      })
+      .catch(() => {
+        this.alertService.message({msg:"Hubo un error al eliminar la colección", type:"error"});
+      });
   }
 }
