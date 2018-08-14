@@ -1,13 +1,13 @@
 header.top-header {
     min-height: 50px;
-    background-color:var(--main-style-color);    
-    position: relative;    
-    z-index: 500;        
+    background-color:var(--main-style-color);
+    position: relative;
+    z-index: 500;
 }
 
 header.top-header h1 {
     display: inline;
-    font-size: 1.4em;    
+    font-size: 1.4em;
 }
 
 
@@ -28,21 +28,28 @@ header.top-header .left-header .toggle-sidebar > i {
 
 
 
-header.top-header .right-header {       
+header.top-header .right-header {
     height: 50px;
-    padding: 2px 0;   
+    padding: 2px 0;
 }
 
-header.top-header .right-header .top-form {    
+header.top-header .right-header .top-form {
     padding: 5px;
 }
 
-header.top-header .right-header input.inputSearch {  
-    border-radius: 10px;  
+header.top-header .right-header input.inputSearch {
+    border-radius: 10px;
 
 }
 
-header.top-header .right-header a.link-profile {    
+header.top-header .right-header a.link-profile {
     padding: 15px;
     font-size: 1.6em;
 }
+header.top-header .right-header a.link-profile{
+  padding: 15px;
+  font-size: 1.6em;
+}
+
+
+

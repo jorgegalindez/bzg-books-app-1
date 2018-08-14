@@ -3,6 +3,8 @@ import { Store, } from "@ngrx/store";
 import * as fromRoot from "../../../reducers";
 import * as layout from "../../actions/layout";
 import { BookListService } from "../../../books-main/services/list/book-list.service";
+import { User } from "firebase/app";
+import {AngularFireAuth} from "angularfire2/auth";
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -12,12 +14,19 @@ import { BookListService } from "../../../books-main/services/list/book-list.ser
 export class TopNavBarComponent implements OnInit {
 
   state: string;
+  user: User;
 
-  constructor(private bookService: BookListService, private store: Store<fromRoot.State>) {
+  constructor(private bookService: BookListService, private store: Store<fromRoot.State>, private authFire: AngularFireAuth) {
     this.state = 'open';
   }
 
   ngOnInit() {
+    this.authFire.authState
+      .subscribe(
+        user => {
+          this.user = user;
+        }
+      )
   }
 
   open() {
