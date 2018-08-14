@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  Input, Output, EventEmitter } from '@angular/core';
 import { BookListService } from "../../services/list/book-list.service";
 import { BookList } from "../../models/books";
 
@@ -10,8 +10,10 @@ import { BookList } from "../../models/books";
 export class BooksListMainComponent implements OnInit {
 
   booksList: BookList;
+  @Input() book: any;
+  @Output() pushFavorite = new EventEmitter<any>();
 
-  constructor(private booksService: BookListService) { 
+  constructor(private booksService: BookListService) {
     this.booksService.searchBooks('Software');
   }
 
@@ -21,9 +23,13 @@ export class BooksListMainComponent implements OnInit {
       (books:BookList) => {
         if(books){
           this.booksList = books;
-        }        
+        }
       }
     );
   }
+  addFavorite(){
+    this.booksService.addFavorite(this.book);
+  }
+
 
 }
