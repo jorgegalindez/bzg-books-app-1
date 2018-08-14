@@ -9,7 +9,8 @@ import { MessagesService } from "../../alerts/services/messages.service";
 })
 export class CollectionsService {
 
-  collectionsRef: AngularFireList<any> = null;  
+  collectionsRef: AngularFireList<any> = null;
+  collectionBookListRef: AngularFireList<any> = null;
 
   constructor(private alertService: MessagesService, private authFire: AngularFireAuth,
     private rdb: AngularFireDatabase) {
@@ -22,6 +23,10 @@ export class CollectionsService {
 
   listCollections(user : firebase.User) : AngularFireList<any[]>{
     return this.collectionsRef = this.rdb.list('collections/' + user.uid);
+  }
+
+  listCollectionBookList(user : firebase.User, collectionKey: string) : AngularFireList<any[]>{
+    return this.collectionBookListRef = this.rdb.list('collections/' + user.uid + '/' + collectionKey + '/books');
   }
 
   createCollection(newCollection : any) {

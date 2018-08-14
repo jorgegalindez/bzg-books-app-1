@@ -10,7 +10,7 @@
     <p class="card-text">
       <b>Fecha de creación:</b> {{collection.createdDate}}
     </p>
-    <!-- <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../../books/detail', book.id]">Ver Detalle</a> -->
-    <button class="btn btn-primary" (click)="removeCollection(collection.key)">Eliminar</button>
+    <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../../collections/detail', collection.key]">Ver</a>
+    <button class="btn btn-primary" style="float:right;" (click)="removeCollection(collection.key)">Eliminar</button>
   </div>
 </div>
