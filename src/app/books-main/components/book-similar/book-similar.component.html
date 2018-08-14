@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let book of booksList?.items">
+    <div class="row">
+      <div class="col-md-12">
+          <img [src]="book.volumeInfo?.imageLinks.thumbnail" class="book-image">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <h5>{{book.volumeInfo?.title}}</h5>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-primary">
+          <i class="fa fa-star"></i>
+        </button>
+      </div>
+    </div>
+  <div>
+</div>

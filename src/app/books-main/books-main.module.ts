@@ -5,11 +5,15 @@ import { BooksListMainComponent } from './containers/books-list-main/';
 import { BookDetailComponent } from './containers/book-detail/';
 import { BookInfoComponent } from './components/book-info/book-info.component';
 import { routes } from "./routes.books-main";
+import { BooksSimilarComponent } from './containers/books-similar/books-similar.component';
+import { BookSimilarComponent } from './components/book-similar/book-similar.component';
 
 const COMPONENTS = [
   BooksListMainComponent,
   BookDetailComponent,
-  BookInfoComponent
+  BookInfoComponent,
+  BooksSimilarComponent,
+  BookSimilarComponent
 ];
 
 @NgModule({
