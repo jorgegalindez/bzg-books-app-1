@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { BookListService } from "../../services/list/book-list.service";
 import { BookList } from "../../models/books";
 import { CollectionsService } from '../../../collections/services/collections.service';
+import { MessagesService } from '../../../alerts/services/messages.service';
 
 @Component({
   selector: 'app-books-list-main',
@@ -19,7 +20,7 @@ export class BooksListMainComponent implements OnInit {
   @Output() pushFavorite = new EventEmitter<any>();
 
   constructor(private booksService: BookListService, private collectionsService: CollectionsService,
-    private angularFireAuth: AngularFireAuth, private renderer: Renderer2) {
+    private angularFireAuth: AngularFireAuth, private renderer: Renderer2, private alertService: MessagesService) {
       this.collectionList = null;
       this.booksService.searchBooks('Software');
   }
@@ -52,11 +53,22 @@ export class BooksListMainComponent implements OnInit {
     }
   }
 
-  addToCollection(book, collectionKey) {
+  addToCollection(event, book, collection) {
     this.angularFireAuth.authState
       .subscribe(
         user => {
-          this.collectionsService.addBookToCollection(user, collectionKey, book);
+          this.collectionsService.addBookToCollection(user, collection.key, book)
+            .then(() => {
+              let successMessage = `El libro "${book.volumeInfo.title}" fue agregado a la colección "${collection.title}"`;
+              this.alertService.message({msg:successMessage, type:"success"});
+            },
+            () => {
+              let errorMessage = `Hubo un error al agregar el libro "${book.volumeInfo.title}" a la colección "${collection.title}"`;
+              this.alertService.message({msg:errorMessage, type:"error"});
+            });
+          let div = this.renderer.parentNode(event.target);
+          let dropdownMenu = this.renderer.parentNode(div);
+          this.renderer.removeClass(dropdownMenu,"show");
         }
       );
   }

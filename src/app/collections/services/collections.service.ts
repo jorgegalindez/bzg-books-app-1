@@ -49,8 +49,8 @@ export class CollectionsService {
       });
   }
 
-  addBookToCollection(user: firebase.User, collectionKey: string, book: any) {
+  addBookToCollection(user: firebase.User, collectionKey: string, book: any): firebase.database.ThenableReference {
     let collectionBooksRef = this.listCollectionBookList(user, collectionKey);
-    collectionBooksRef.push(book);
+    return collectionBooksRef.push(book);
   }
 }

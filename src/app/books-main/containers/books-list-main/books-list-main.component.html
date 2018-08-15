@@ -21,7 +21,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [id]="book.id" >
                             <div *ngFor="let collection of collectionList | async">
-                                <a class="dropdown-item" href="javascript:void(0);" (click)="addToCollection(book, collection.key)">{{collection.title}}</a>
+                                <a class="dropdown-item" href="javascript:void(0);" (click)="addToCollection($event, book, collection)">{{collection.title}}</a>
                             </div>
                         </div>
                     </div>
