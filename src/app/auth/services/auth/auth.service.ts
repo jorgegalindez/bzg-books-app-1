@@ -30,6 +30,16 @@ export class AuthService {
     return this.authFire.auth.signInWithEmailAndPassword(auth.email, auth.password);
   }
 
+  signup(auth: ILogin){
+     return this.authFire.auth.createUserWithEmailAndPassword(auth.email, auth.password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
+  }
+
+
   signWithGoogle() {
     return this.authFire.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
