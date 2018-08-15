@@ -1,4 +1,4 @@
 <div class="book">
     <app-book-info [book]="book" (pushFavorite)="addFavorite($event)"></app-book-info>
-    <app-books-similar></app-books-similar>
+    <app-books-similar [book]="book"></app-books-similar>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BookListService } from '../../services/list/book-list.service';
 import { BookList } from '../../models/books';
+import { BooksSimilarComponent } from '../../containers/books-similar/books-similar.component';
 
 @Component({
   selector: 'app-book-similar',
@@ -9,10 +10,11 @@ import { BookList } from '../../models/books';
 })
 export class BookSimilarComponent implements OnInit {
 
+  @Input() book2: any;
   booksList: BookList;
 
   constructor(private booksService: BookListService) { 
-    this.booksService.searchBooks('Software', 0, 3);
+    this.booksService.searchBooks("x", 0, 3);
   }
 
   ngOnInit() {
@@ -26,4 +28,7 @@ export class BookSimilarComponent implements OnInit {
     );
   }
 
+  addFavorite(book){
+    this.booksService.addFavorite(book);
+  }
 }

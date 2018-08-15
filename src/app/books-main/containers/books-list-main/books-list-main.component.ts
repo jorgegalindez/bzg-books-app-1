@@ -31,8 +31,9 @@ export class BooksListMainComponent implements OnInit {
       }
     );
   }
-  addFavorite(){
-    this.booksService.addFavorite(this.book);
+
+  addFavorite(book){
+    this.booksService.addFavorite(book);
   }
 
   addToCollection(book) {
