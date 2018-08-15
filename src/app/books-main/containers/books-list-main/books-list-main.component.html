@@ -15,7 +15,7 @@
               </p>
             <div style="text-align: center">
               <a  title="Agregar a favoritos"  (click)="addFavorite()"><i class="fa fa-heart" style="padding: 10px"></i></a>
-              <a  title="Agregar a colección" ><i class="fa fa-bars" style="padding: 10px"></i></a>
+              <a  title="Agregar a colección" (click)="addToCollection(book)" ><i class="fa fa-bars" style="padding: 10px"></i></a>
               <a  title="Ver detalle"  [routerLink]="['../detail/', book.id]"><i class="fa fa-eye" style="padding: 10px"></i></a>
             </div>
 

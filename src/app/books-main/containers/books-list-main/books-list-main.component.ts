@@ -1,6 +1,8 @@
 import { Component, OnInit,  Input, Output, EventEmitter } from '@angular/core';
+import { AngularFireAuth } from "angularfire2/auth";
 import { BookListService } from "../../services/list/book-list.service";
 import { BookList } from "../../models/books";
+import { CollectionsService } from '../../../collections/services/collections.service';
 
 @Component({
   selector: 'app-books-list-main',
@@ -13,7 +15,9 @@ export class BooksListMainComponent implements OnInit {
   @Input() book: any;
   @Output() pushFavorite = new EventEmitter<any>();
 
-  constructor(private booksService: BookListService) {
+  constructor(private booksService: BookListService,
+    private collectionsService: CollectionsService,
+    private angularFireAuth: AngularFireAuth) {
     this.booksService.searchBooks('Software');
   }
 
@@ -31,5 +35,12 @@ export class BooksListMainComponent implements OnInit {
     this.booksService.addFavorite(this.book);
   }
 
-
+  addToCollection(book) {
+    this.angularFireAuth.authState
+      .subscribe(
+        user => {
+          this.collectionsService.addBookToCollection(user, "-LJgKCww5JFZ62gw5mKK", book);
+        }
+      );
+  }
 }

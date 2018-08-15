@@ -48,4 +48,9 @@ export class CollectionsService {
         this.alertService.message({msg:"Hubo un error al eliminar la colección", type:"error"});
       });
   }
+
+  addBookToCollection(user: firebase.User, collectionKey: string, book: any) {
+    let collectionBooksRef = this.listCollectionBookList(user, collectionKey);
+    collectionBooksRef.push(book);
+  }
 }
