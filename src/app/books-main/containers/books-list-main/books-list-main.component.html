@@ -13,11 +13,20 @@
               <p class="card-text">
                   {{book.volumeInfo.publishedDate}}
               </p>
-            <div style="text-align: center">
-              <a  title="Agregar a favoritos"  (click)="addFavorite(book)"><i class="fa fa-heart" style="padding: 10px"></i></a>
-              <a  title="Agregar a colección" (click)="addToCollection(book)" ><i class="fa fa-bars" style="padding: 10px"></i></a>
-              <a  title="Ver detalle"  [routerLink]="['../detail/', book.id]"><i class="fa fa-eye" style="padding: 10px"></i></a>
-            </div>
+              <div style="text-align: center">
+                    <a style="float:left;" title="Agregar a favoritos" (click)="addFavorite()"><i class="fa fa-heart fa-2x" style="padding: 10px"></i></a>
+                    <div class="dropdown" style="float:left;">
+                        <button title="Agregar a colección" class="btn btn-secondary dropdown-toggle" (click)="showDropdown($event, book.id)" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bars" style="padding: 10px"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [id]="book.id" >
+                            <div *ngFor="let collection of collectionList | async">
+                                <a class="dropdown-item" href="javascript:void(0);" (click)="addToCollection(book, collection.key)">{{collection.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a style="float:left;" title="Ver detalle"  [routerLink]="['../detail/', book.id]"><i class="fa fa-eye fa-2x" style="padding: 10px"></i></a>
+                </div>
 
           </div>
       </div>
