@@ -2,7 +2,7 @@
   <div class="col-md-4" *ngFor="let book of booksList?.items">
     <div class="row">
       <div class="col-md-12">
-          <img [src]="book.volumeInfo?.imageLinks.thumbnail" class="book-image">
+          <img [src]="book.volumeInfo?.imageLinks?.thumbnail" class="book-image">
       </div>
     </div>
     <div class="row">

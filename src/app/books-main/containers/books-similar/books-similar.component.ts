@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { BookList } from '../../models/books';
 
 @Component({
   selector: 'app-books-similar',
@@ -7,12 +8,12 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 })
 export class BooksSimilarComponent implements OnInit {
     
-  @Input() book: any;
+  @Input() booksList: BookList;
 
   constructor() {
    }
 
   ngOnInit() {
-  }
+  }  
 
 }
