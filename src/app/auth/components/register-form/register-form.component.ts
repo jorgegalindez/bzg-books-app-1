@@ -25,8 +25,8 @@ export class RegisterFormComponent implements OnInit {
         auth => {
           this.router.navigate(['/login']);
         },
-        error => {
-          alert("Usuario o Contraseña Invalida.");
+        error => {          
+          alert(error.message);
         }
       );
   }
