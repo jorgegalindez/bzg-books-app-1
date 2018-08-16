@@ -1,0 +1,15 @@
+.login-box{
+  width: 60%;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .login-box{
+    width: 80%;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .login-box{
+    width: 95%;
+  }
+}

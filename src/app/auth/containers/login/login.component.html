@@ -1,14 +1,17 @@
 <div class="login-box">
-  <div class="login-logo">
-    <a href=""><b>Bzg Books</b>APP</a>
-  </div>
   <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4 text-cs-grey-dark">My books APP</h1>
+      <p class="lead"><br></p>
+      <div class="login-box-body">
+        <p class="login-box-msg">Sign in to start your session</p>
 
-    <app-login-form (submitted)="auth($event)" (signByGoogle)="signWithGoogle($event)"></app-login-form>
+        <app-login-form (submitted)="auth($event)" (signByGoogle)="signWithGoogle($event)"></app-login-form>
 
+      </div>
+      <!-- /.login-box-body -->
+    </div>
   </div>
-  <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
