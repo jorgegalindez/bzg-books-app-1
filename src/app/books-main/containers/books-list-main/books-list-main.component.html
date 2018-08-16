@@ -14,7 +14,7 @@
                   {{book.volumeInfo.publishedDate}}
               </p>
               <div style="text-align: center">
-                    <a style="float:left; cursor:pointer;" title="Agregar a favoritos" (click)="addFavorite()"><i class="fa fa-heart fa-2x" style="padding: 10px"></i></a>
+                    <a style="float:left; cursor:pointer;" title="Agregar a favoritos" (click)="addFavorite(book)"><i class="fa fa-heart fa-2x" style="padding: 10px"></i></a>
                     <div class="dropdown" style="float:left;">
                         <button title="Agregar a colección" class="btn btn-secondary dropdown-toggle" (click)="showDropdown($event, book.id)" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-bars" style="padding: 10px"></i>

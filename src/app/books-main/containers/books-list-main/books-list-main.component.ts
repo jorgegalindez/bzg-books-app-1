@@ -17,7 +17,7 @@ export class BooksListMainComponent implements OnInit {
   booksList: BookList;
   collectionList: Observable<any[]>;
   @Input() book: any;
-  @Output() pushFavorite = new EventEmitter<any>();
+  // @Output() pushFavorite = new EventEmitter<any>();
 
   constructor(private booksService: BookListService, private collectionsService: CollectionsService,
     private angularFireAuth: AngularFireAuth, private renderer: Renderer2, private alertService: MessagesService) {

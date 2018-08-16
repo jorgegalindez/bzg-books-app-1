@@ -60,7 +60,7 @@ export class BookListService {
   addFavorite(book : any) {
     const promise = this.favsRef.push(book);
     promise.then(() => {
-      this.alertService.message({msg:"Libro agregado a favoritos", type:"success"});
+      this.alertService.message({msg:`El libro "${book.volumeInfo.title}" fue agregado a favoritos`, type:"success"});
     });
   }
 
