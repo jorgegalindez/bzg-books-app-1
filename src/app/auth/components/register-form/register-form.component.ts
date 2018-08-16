@@ -12,9 +12,11 @@ export class RegisterFormComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
     this.login = new Login();
+    this.errorMessage = '';
   }
 
-  login: ILogin;  
+  login: ILogin;
+  errorMessage: string;
 
   ngOnInit() {
   }
@@ -26,7 +28,7 @@ export class RegisterFormComponent implements OnInit {
           this.router.navigate(['/login']);
         },
         error => {          
-          alert(error.message);        
+          this.errorMessage = error.message;
         }
       );
   }
