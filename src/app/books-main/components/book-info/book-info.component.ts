@@ -16,6 +16,7 @@ export class BookInfoComponent implements OnInit {
   }
 
   addFavorite() {
+    console.log("Search"+this.book.volumeInfo.publishedDate);
     this.pushFavorite.emit(this.book);
   }
 

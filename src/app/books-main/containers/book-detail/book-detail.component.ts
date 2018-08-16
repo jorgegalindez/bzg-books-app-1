@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from "@angular/router";
 import { BookListService } from "../../services/list/book-list.service";
+import { BookList } from '../../models/books';
 
 @Component({
   selector: 'app-book-detail',
@@ -10,6 +11,7 @@ import { BookListService } from "../../services/list/book-list.service";
 export class BookDetailComponent implements OnInit {
 
   book: any;
+  booksList: BookList;
 
   constructor(private route: ActivatedRoute, private booksService: BookListService) { 
     this.book = {};
@@ -26,14 +28,33 @@ export class BookDetailComponent implements OnInit {
       .subscribe(
         (book: any) => {
           this.book = book;
+          console.log("Bookz: "+book)
         }
       )
+      setTimeout(()=>{
+        this.searchSimilar(this.book.volumeInfo.title);
+      }, 1000);
+      
+
+      this.booksService.bookList
+      .subscribe(
+        (books: BookList) => {
+          if (books) {
+            this.booksList = books;
+          }
+        }
+      );
     });
 
   }
 
   addFavorite(){
     this.booksService.addFavorite(this.book);
+  }
+
+  searchSimilar(title:string){
+    console.log("search similar:"+title);
+    this.booksService.searchBooks(title, 1, 3);
   }
 
 }
