@@ -1,0 +1,21 @@
+.truncate {
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+.card-img-top {
+    height: 290px;
+}
+
+.card-body {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.card {
+    margin: 10px 0;
+}
