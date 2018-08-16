@@ -1,9 +1,9 @@
 <div class="card">
-  <div class="card-header">
+  <div class="card-header truncate" data-toggle="tooltip" data-placement="top" [title]="book.volumeInfo.title">
     {{book.volumeInfo.title}}
   </div>
-  <img class="card-img-top" [src]="book.volumeInfo.imageLinks?.large || book.volumeInfo.imageLinks?.thumbnail">
-  <div class="card-body">
+  <img class="card-img-top" [src]="book.volumeInfo.imageLinks?.thumbnail">
+  <div class="card-body card-body-flex">
     <p class="card-text">
       {{book.volumeInfo.publisher}}
     </p>

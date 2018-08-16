@@ -1,16 +1,18 @@
 <div class="card bg-cs-orange-dark">
-  <div class="card-header">
+  <div class="card-header truncate" data-toggle="tooltip" data-placement="top" [title]="collection.title">
     {{collection.title}}
   </div>
   <!-- <img class="card-img-top" [src]="book.volumeInfo.imageLinks?.large || book.volumeInfo.imageLinks?.thumbnail"> -->
-  <div class="card-body">
-    <p class="card-text">
-      {{collection.description}}
-    </p>
-    <p class="card-text">
-      <b>Fecha de creación:</b> {{collection.createdDate}}
-    </p>
+  <div class="card-body card-body-flex-collection">
+    <div class="card-body-collection-detail">
+      <div class="card-text truncate" data-toggle="tooltip" data-placement="top" [title]="collection.description">
+          {{collection.description}}
+        </div>
+        <p class="card-text">
+          <b>Fecha de creación:</b> {{collection.createdDate}}
+        </p>
+    </div>
     <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../../collections/detail', collection.key]">Ver</a>
-    <button class="btn btn-primary" style="float:right;" (click)="removeCollection(collection.key)">Eliminar</button>
+    <button class="btn btn-primary" (click)="removeCollection(collection)">Eliminar</button>
   </div>
 </div>

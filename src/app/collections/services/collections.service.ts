@@ -29,24 +29,12 @@ export class CollectionsService {
     return this.collectionBookListRef = this.rdb.list('collections/' + user.uid + '/' + collectionKey + '/books');
   }
 
-  createCollection(newCollection : any) {
-    this.collectionsRef.push(newCollection)
-      .then(() => {
-        this.alertService.message({msg:"Nueva colección fue creada", type:"success"});
-      },
-      () => {
-        this.alertService.message({msg:"Hubo un error al crear la colección", type:"error"});
-      });
+  createCollection(newCollection : any): firebase.database.ThenableReference {
+    return this.collectionsRef.push(newCollection);
   }
 
-  removeCollection(collectionKey: string) {
-    this.collectionsRef.remove(collectionKey)
-      .then(() => {
-        this.alertService.message({msg:"La colección fue eliminada", type:"success"});
-      })
-      .catch(() => {
-        this.alertService.message({msg:"Hubo un error al eliminar la colección", type:"error"});
-      });
+  removeCollection(collectionKey: string): Promise<void> {
+    return this.collectionsRef.remove(collectionKey);
   }
 
   addBookToCollection(user: firebase.User, collectionKey: string, book: any): firebase.database.ThenableReference {

@@ -15,7 +15,7 @@ export class CardCollectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  removeCollection(collectionKey: string){
-    this.collectionRemoved.emit(collectionKey);
+  removeCollection(collectionToRemove: any){
+    this.collectionRemoved.emit(collectionToRemove);
   }
 }
