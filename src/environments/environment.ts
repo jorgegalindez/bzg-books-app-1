@@ -6,12 +6,12 @@ export const environment = {
   production: false,
   apiBooks: 'https://www.googleapis.com/books/v1/',
   firebase: {
-    apiKey: "AIzaSyCxxrmYkoPnFA-npNTrhDlJcdj_XyC3wPQ",
-    authDomain: "bizg-front-end-course.firebaseapp.com",
-    databaseURL: "https://bizg-front-end-course.firebaseio.com",
-    projectId: "bizg-front-end-course",
-    storageBucket: "bizg-front-end-course.appspot.com",
-    messagingSenderId: "629102467512"
+    apiKey: "AIzaSyCj8cFh4lySbu5teiJCfNIYjqvwXxqm32Y",
+    authDomain: "angular-front-end-course.firebaseapp.com",
+    databaseURL: "https://angular-front-end-course.firebaseio.com",
+    projectId: "angular-front-end-course",
+    storageBucket: "angular-front-end-course.appspot.com",
+    messagingSenderId: "835851261490"
   }
 };
 
