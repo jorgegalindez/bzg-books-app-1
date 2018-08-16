@@ -6,6 +6,7 @@ import { LoginComponent } from './containers/login/login.component';
 import { routes } from "./routes.auth";
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { EqualValidator } from './equal-validator.directive';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { RegisterFormComponent } from './components/register-form/register-form.
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LoginComponent, LoginFormComponent, RegisterFormComponent]
+  declarations: [LoginComponent, LoginFormComponent, RegisterFormComponent, EqualValidator]
 })
 export class AuthModule { }

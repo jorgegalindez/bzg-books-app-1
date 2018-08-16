@@ -1,4 +1,18 @@
-.btn-primary:disabled {
+h2 {
+    color: #000000;
+}
+ .register-form-container {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    height: 100vh;
+ }
+
+ .register-from {
+     width: 500px;
+ }
+ .btn-primary:disabled {
     color: #fff;
     background-color: #EFF2ED;
     border-color: #EDF1F2;

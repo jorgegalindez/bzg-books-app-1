@@ -31,6 +31,7 @@ export class AuthService {
   }
 
   signup(auth: ILogin){
+    
      return this.authFire.auth.createUserWithEmailAndPassword(auth.email, auth.password).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
