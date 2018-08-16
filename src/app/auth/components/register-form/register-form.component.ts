@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Login, ILogin } from '../../models/user/auth';
 import { AuthService } from "../../services/auth/auth.service";
 import { Router } from "@angular/router";
@@ -10,23 +10,23 @@ import { Router } from "@angular/router";
 })
 export class RegisterFormComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router, private zone: NgZone) {
+  constructor(private authService: AuthService, private router: Router) {
     this.login = new Login();
   }
 
-  login: ILogin;
+  login: ILogin;  
 
   ngOnInit() {
   }
 
-  signup() {
+  signup() {   
     this.authService.signup(this.login)
       .then(
         auth => {
           this.router.navigate(['/login']);
         },
         error => {          
-          alert(error.message);
+          alert(error.message);        
         }
       );
   }
